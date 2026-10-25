@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang đặt tiệc</title>
+</head>
+<body>
+    <header>
+        <h1>Dịch vụ Tiệc & Ẩm thực</h1>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+        </nav>
+    </header>
+    <main>
+        <section class="booking-section">
+            <h2>Đặt tiệc & Suất ăn văn phòng</h2>
+            <p>
+                 Đặt món đặc sản Hải Phòng cho tiệc gia đình,
+                sinh nhật, sự kiện hoặc bữa ăn văn phòng.<br>
+                <b>Vui lòng điền thông tin để gửi yêu cầu.</b>
+            </p>
+            <form action="#" method="post">
+                <label for="fullname">Họ và tên: </label>
+                <input type="text" id="fullname" name="fullname" placeholder="Nhập họ và tên" required><br>
+                <label for="phone">Số điện thoại: </label>
+                <input type="number" id="phone" name="phone" placeholder="Nhập số điện thoại" required><br>
+                <label for="service">Chọn loại dịch vụ: </label>
+                <select id="service" name="service" required>
+                    <option value="">>--Chọn dich vụ</option>
+                    <option value="sinh-nhat">Sinh nhật</option>
+                    <option value="su-kien">Sự kiện, hội nghị</option>
+                    <option value="van-phong">Suất ăn văn phòng</option>
+                </select>
+                <label for="meal-quanity">số lượng suất ăn: </label>
+                <input type="number" id="meal-quanity" name="meal-quanity" min="1" value="1" placeholder="nhập suất ăn" required><br>
+                <label for="date">Ngày cần phục vụ: </label>
+                <input type="date" id="date" name="date" required><br>
+                <label for="location">Địa điểm giao hàng: </label>
+                <input type="text" id="location" name="location" placeholder="Nhập địa chỉ giao hàng"><br>
+                <label for="note">Món ăn và yêu cầu thêm:</label>
+                <textarea id="note" name="note" rows="4" placeholder="Nhập các món muốn đặt hoặc yêu cầu khác"></textarea><br><br>
+                <button type="submit">Gửi yêu cầu đặt tiệc</button>
+            </form> 
+        </section>
+    </main>
+</body>
+</html>

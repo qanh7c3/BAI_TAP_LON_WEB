@@ -66,12 +66,17 @@
     <section id="menu" class="food-menu">
         <h2>Thực đơn của chúng tôi</h2>
         <p>Khám phá những món ăn tươi ngon của DQD food.vn</p>
+        <button class="category=btn" data-category="all">Tất cả</button>
+        <button class="category-btn" data-category="mon-nuoc">Món nước</button>
+        <button class="category-btn" data-category="mon-chien">Món chiên</button>
+        <button class="category-btn" data-category="do-uong">Đồ uống</button>
+        <button class="category-btn" data-category="do-an-vat">Đô ăn vặt</button>
         <!--Danh sách sản phẩm-->
         <div class="food-list">
             <!--Món 1-->
-            <article class="food-card">
+            <article class="food-card" data-category="do-an-vat">
                 <div class="food-image">
-                    <img src="D:\Vuhoangdung_106928\59-620x620-3.jpg" alt="Hamburger bò phô mai">
+                    <img width="400px" src="D:\Vuhoangdung_106928\59-620x620-3.jpg" alt="Hamburger bò phô mai">
                 </div>
                 <div class="food-info">
                     <span class="food-tag">Best seller của quán</span>
@@ -83,6 +88,10 @@
                     <p class="food-allergic">
                         <strong>Thành phần gây dị ứng: </strong>Sữa, gluten.
                     </p>
+                    <p class="food-address">
+                    <strong>Địa chỉ: </strong>
+                    <span>27 Minh Khai, Quận Hồng Bàng, Hải Phòng </span>
+                </p>
                     <div class="food-option">
                         <label for="Burger-sỉze">Kích thước</label>
                         <select id="Burger-sỉze" name="Burger-sỉze">
@@ -91,7 +100,7 @@
                             <option value="Small">Cỡ nhỏ - 45.000đ</option>
                         </select>   
                     </div>
-                    <div class="food-option">
+                    <div class="food-bottom">
                         <label for="Burger-quanity">Số lượng: </label>
                         <input type="number" id="Burger-quanity" name="Burger-quanity" min="1" value="1">
                         <p class="food-price">Giá: 65.000đ</p>
@@ -100,6 +109,362 @@
                 </div>
             </article>
         </div>
+        <!--Món 2-->
+        <article class="food-card" data-category="mon-nuoc">
+            <div class="food-image">
+                <img width="400px" src="anh html\images.jpg">
+            </div>
+            <div class="food-info">
+                <span class="food-tag">Đặc sản Hải Phòng</span>
+                <h3>Bánh đa cua Hải Phòng</h3>
+                <p class="food-description">
+                    Bánh đa đỏ kết hợp cùng riêu cua, chả lá lốt,
+                    các loại chả, hành lá và nước dùng đậm đà.
+                </p>
+                <p class="food-allergic">
+                    <strong>Thành phần gây dị ứng: </strong>hải sản
+                </p>
+                <p class="food-address">
+                    <strong>Địa chỉ: </strong>
+                    <span>Bánh đa cua 48 Lạch Tray - Số 48 Lạch Tray, Ngô Quyền, TP Hải Phòng</span>
+                </p>
+                <div class="food-option">
+                    <label for="banh-da-cua-size">Chọn phần</label>
+                    <select id="banh-da-cua-size" name="banh-da-cua-size">
+                        <option value="45000">Phần thường - 45000đ</option>
+                        <option value="65000">Phần đặc biệt - 65000đ</option>
+                    </select>
+                </div>
+                <div class="food-option">
+                    <label for="banh-da-cua-quanity">số lượng: </label>
+                    <input type="number" id="banh-da-cua-quanity" name="banh-da-cua-quanity" min="1" value="1">
+                </div>
+                <div class="food-bottom">
+                    <p class="food-price">45000đ</p>
+                    <button type="button" class="btn-add">+ thêm vào giỏ</button>
+                </div>
+            </div>
+        </article>
+        <!--Món 3-->
+        <article class="food-card" data-category="mon-chien">
+            <div class="food-image">
+                <img width="400px" src="anh html\nem-cua-be.jpg" alt="Nem cua bể Bà cụ">
+            </div>
+            <div class="food-info">
+                <span class="food-tag">Đặc sản Hải Phòng</span>
+                <h3>Nem cua bể Bà Cụ</h3>
+                <p class="food-description">
+                    Chả nem giòn rụm, nhân thịt cua đậm đà,
+                    ăn kèm rau sống và nước chấm chua ngọt.
+                </p>
+                <p class="food-allergic">
+                    <strong>Thành phần gây dị ứng: </strong>Cua, trứng
+                </p>
+                <p class="food-address">
+                    <strong>Địa chỉ: </strong>
+                    <span>179 P. Cầu Đất, Gia Viên, Hải Phòng, Việt Nam</span>
+                </p>
+            </div>
+            <div class="food-option">
+                <label for="nem-cua-be-quanity">Số lượng phần: </label>
+                <input type="number" id="nem-cua-be-quanity" name="nem-cua-be-quanity" min="1" value="1">
+            </div>
+            <div class="food-bottom">
+                <p class="food-price">25000đ/1 cái</p>
+                <button type="button" class="btn-add">+Thêm vào giỏ hàng</button>
+            </div>
+        </article>
+        <!--Món 4-->
+        <article class="food-card" data-category="mon-nuoc">
+            <div class="food-image">
+                <img width="400px" src="anh html\bun-ca-cay-hai-phong-o-ha-noi-12.jpg" alt="Bún cá cay">
+            </div>
+            <div class="food-info">
+                <span class="food-tag">Món ăn bình dân</span>
+                <h3>Bún cá cay</h3>
+                <p class="food-description">
+                    Tô bún cá hấp dẫn cả sắc, hương, vị với phi lê cá chiên giòn bên trong mềm ngọt. Món ăn này dễ chiều vị giác trong tiết thu se lạnh.
+                </p>
+                <p class="food-allergic">
+                    <strong>Thành phần gây dị ứng: </strong>Cá
+                </p>
+                <p class="food-address">
+                    <strong>Địa chỉ: </strong>
+                    <span>66 P. Lê Lợi, Gia Viên, Hải Phòng, Việt Nam</span>
+                </p>
+                <div class="food-option">
+                    <label for="banh-da-cua-size">Chọn phần</label>
+                    <select id="banh-da-cua-size" name="banh-da-cua-size">
+                        <option value="45000">Phần thường - 35000đ</option>
+                        <option value="65000">Phần đặc biệt - 50000đ</option>
+                    </select>
+                    <label for="bun-ca-cay-spice">Chọn mức độ cay: </label>
+                    <select id="bun-ca-cay-spice" name="bun-ca-cay-spice">
+                        <option value="khong-cay">Không cay</option>
+                        <option value="it-cay">ít cay</option>
+                        <option value="vua-cay">cay vừa</option>
+                        <option value="nhieu-cay">Nhiều cay</option>
+                    </select>
+                </div>
+                <div class="food-option">
+                    <label for="bun-ca-cay-quanity">số lượng: </label>
+                    <input type="number" id="bun-ca-cay-quanity" name="bun-ca-cay-quanity" min="1" value="1">
+                </div>
+                <div class="food-bottom">
+                    <p class="food-price">35000đ</p>
+                    <button type="button" class="btn-add">+ thêm vào giỏ</button>
+                </div>
+            </div>
+        </article>
+        <!--Món 5-->
+        <article class="food-card" data-category="do-an-vat">
+            <div class="food-image">
+                <img width="400px" src="anh html\banh-mi-que-hai-phong-o-ha-noi-2.jpg" alt="Bánh mì que cay Hải Phòng">
+            </div>
+            <div class="food-info">
+                <span class="food-tag">Đặc sản Hải Phòng</span>
+                <h3>Bánh mì que cay Hải Phòng</h3>
+                <p class="food-description">
+                    Từ một món ăn dân dã, bánh mì que Hải Phòng hiện nay đã trở thành món ăn nổi tiếng hấp dẫn thực khách bốn phương. Bánh mì que không chỉ gây ấn tượng với thực khách ở vỏ ngoài bánh, phần nhân mà còn ở nước chấm đi kèm.
+                </p>
+                <p class="food-address">
+                    <strong>Địa chỉ: </strong>
+                    <span>Tiệm Bánh Mì Cay Ông Cuông - 184 P. Hàng Kênh, Lê Chân, Hải Phòng, Việt Nam</span>
+                </p>
+            </div>
+            <div class="food-option">
+                <label for="banh-mi-cay-quanity">Số lượng(cái) : </label>
+                <input type="number" id="banh-mi-cay-quanity" name="banh-mi-cay-quanity" min="1" value="1">
+            </div>
+            <div class="food-bottom">
+                <p class="food-price">5000đ/1 cái</p>
+                <button type="button" class="btn-add">+Thêm vào giỏ hàng</button>
+            </div>
+        </article>
+        <!--Món 7-->
+        <article class="food-card" data-category="do-an-vat">
+            <div class="food-image">
+                <img width="400px" src="anh html\sui-din-thumb.jpg" alt="Sủi dìn">
+            </div>
+            <div class="food-info">
+                <span class="food-tag">Giải pháp cho mùa đông</span>
+                <h3>Sủi dìn, chè vừng – top món ngon Hải Phòng vào đông</h3>
+                <p class="food-description">
+                    một bát sủi dìn, chè vừng nóng hổi có mùi thơm của  gừng, vị bùi của lạc, dừa tươi, rất thích hợp để thưởng thức vào những ngày gió lạnh.
+                <p class="food-address">
+                    <strong>Địa chỉ: </strong>
+                    <span>Quán Đông Dung - Số 163 Cầu Đất, Ngô Quyền</span>
+                </p>
+            </div>
+            <div class="food-option">
+                <label for="sui-din-quanity">Số lượng bát : </label>
+                <input type="number" id="sui-din-quanity" name="sui-din-quanity" min="1" value="1">
+            </div>
+            <div class="food-bottom">
+                <p class="food-price">20000đ/1 bát</p>
+                <button type="button" class="btn-add">+ Thêm vào giỏ hàng</button>
+            </div>
+        </article>
+        <!--Món 8-->
+        <article class="food-card" data-category="do-an-vat">
+            <div class="food-image">
+                <img width="400px" src="anh html\mon-ngon-hai-phong-6.jpg" alt="Bánh mì que cay Hải Phòng">
+            </div>
+            <div class="food-info">
+                <span class="food-tag">Đặc sản Hải Phòng</span>
+                <h3>Bánh bèo Hải Phòng</h3>
+                <p class="food-description">
+                    Bánh bèo được bọc trong lá chuối, mềm dẻo, nhân đẫm thịt và có nước chấm độc đáo làm từ nước xương ninh nhừ khiến bạn không thể quên được món ăn này.
+                <p class="food-address">
+                    <strong>Địa chỉ: </strong>
+                    <span>Bánh bèo Lạch Tray - Số 294 Lạch Tray, Ngô Quyền</span>
+                </p>
+            </div>
+            <div class="food-option">
+                <label for="banh-beo-quanity">Số lượng(phần) : </label>
+                <input type="number" id="banh-beo-quanity" name="banh-beo-quanity" min="1" value="1">
+            </div>
+            <div class="food-bottom">
+                <p class="food-price">30000đ/1 phần</p>
+                <button type="button" class="btn-add">+Thêm vào giỏ hàng</button>
+            </div>
+            <!--Món 8-->
+            <article class="food-card" data-category="do-uong">
+            <div class="food-image">
+                <img width="400px" src="anh html\images (1).jpg" alt="Cà phê cốt dừa">
+            </div>
+            <div class="food-info">
+                <span class="food-tag">Thức uống mới lạ</span>
+                <h3>Cà phê cốt dừa vị ngon khó cưỡng, khó quên</h3>
+                <p class="food-description">
+                    đừng quên thưởng thức một ly cà phê cốt dừa để bắt đầu ngày mới năng lượng, tích cực. Cà phê cốt dừa được đánh đều lên sao cho quyện cùng với cốt dừa thành một hỗn hợp đặc sệt. Sau đó, cho thêm trân châu, thạch đen, dừa khô và dừa tươi nạo sợi tạo nên hương vị độc đáo cho ly cà phê khiến ai cũng tấm tắc khen ngợi.
+                <p class="food-address">
+                    <strong>Địa chỉ: </strong>
+                    <span>Quán cô Hạnh - Số 130 Lam Sơn, Lê Chân</span>
+                </p>
+            </div>
+            <div class="food-option">
+                <label for="ca-phe-size">Chọn kích cỡ: </label>
+                <select id="ca-phe-size" name="ca-phe-size">
+                    <option value="Nho">Cỡ nhỏ - 15000đ</option>
+                    <option value="To">Cỡ to - 60000đ</option>
+                </select>
+            </div>
+            <div class="food-option">
+                <label for="ca-phe-quanity">Số lượng(cốc) : </label>
+                <input type="number" id="ca-phe-quanity" name="ca-phe-quanity" min="1" value="1">
+            </div>
+            <div class="food-bottom">
+                <p class="food-price">15000đ</p>
+                <button type="button" class="btn-add">+ Thêm vào giỏ hàng</button>
+            </div>
+        </article>
+            <!--Món 9-->
+            <article class="food-card" data-category="mon-nuoc">
+            <div class="food-image">
+                <img width="400px" src="anh html\mon-ngon-hai-phong-14.jpg" alt="Cháo cay Hải Phòng">
+            </div>
+            <div class="food-info">
+                <span class="food-tag">Cháo cay nêm nếm vừa miệng, ăn không bị ngấy</span>
+                <h3>Cháo cay – món ngon Hải Phòng</h3>
+                <p class="food-description">
+                    Cháo cay Hải Phòng với cháo sánh mịn, nóng hổi,
+                    kết hợp cùng các loại topping thơm ngon và gia vị
+                    đậm đà. Điểm nhấn của món ăn là vị cay nồng đặc trưng,
+                    tạo nên hương vị hấp dẫn, ấm bụng và khó quên.
+                <p class="food-address">
+                    <strong>Địa chỉ: </strong>
+                    <span>Quán cháo Trần Bình Trọng: Số 17 Trần Bình Trọng, Ngô Quyền</span>
+                </p>
+            </div>
+            <div class="food-option">
+                <label for="chao-spice">Chọn độ cay: </label>
+                <select id="chao-spice" name="chao-spice">
+                    <option value="nhieu-cay">Nhiều cay</option>
+                    <option value="vua-cay">cay vừa</option>
+                    <option value="it-cay">Ít cay</option>
+                    <option value="khong-cay">Không cay</option>
+                </select>
+                <label for="chao-topping">Chọn đồ ăn kèm: </label>
+                <select id="chao-topping" name="chao-topping">
+                    <option value="quay-ruoc">Quẩy + ruốc - 15000đ</option>
+                    <option value="moc-nhi=thit">Mộc nhĩ + thịt - 25000đ</option>
+                    <option value="chao-truyen-thong">Cháo truyền thống - 5000đ</option>
+                    <option value="tiet-long">Tiết + lòng - 30000đ</option>
+                </select>
+            </div>
+            <div class="food-option">
+                <label for="chao-quanity">Số lượng(bát): </label>
+                <input type="number" id="chao-quanity" name="chao-quanity" min="1" value="1">
+            </div>
+            <div class="food-bottom">
+                <p class="food-price">Giá cập nhật theo menu</p>
+                <button type="button" class="btn-add">+ Thêm vào giỏ hàng</button>
+            </div>
+        </article>
+        
+<!-- Món 10 -->
+<article class="food-card" data-category="mon-an-vat">
+    <div class="food-image">
+        <img width="400px" src="anh html\mon-ngon-hai-phong-16.jpg" alt="Nem chua An Thọ Hải Phòng">
+    </div>
+
+    <div class="food-info">
+        <span class="food-tag tag-bestseller">Đặc sản Hải Phòng</span>
+        <h3>Nem chua An Thọ lên men tự nhiên, bì giòn sừn sựt</h3>
+        <p class="food-description">
+            Nem chua An Thọ được làm từ thịt và bì heo tươi ngon, sau đó ủ để lên men tự nhiên tạo nên nem đạt độ chua và màu hồng đẹp mắt. Nem chua An Thọ ăn kèm ăn cùng sung muối, dưa chuột muối… chấm thêm nước chấm là ngon bá cháy. Món ngon Hải Phòng này bạn có thể mua về làm quà cho người thân, bạn bè sẽ rất ý nghĩa.
+        </p>
+        <p class="food-address">
+            <strong>Địa chỉ:</strong>
+            <span>Cửa hàng Thanh Thủy - Số 311 Phủ Thượng Đoạn, Hải An</span>
+        </p>
+        <div class="food-options">
+            <label for="nem-chua-an-tho-quantity">Số lượng phần:</label>
+            <input type="number"id="nem-chua-an-tho-quantity" name="nem-chua-an-tho-quantity" min="1" value="1">
+        </div>
+        <div class="food-bottom">
+            <p class="food-price">30000đ/10 cái</p>
+            <button type="button" class="btn-add">+ Thêm vào giỏ </button>
+        </div>
+    </div>
+</article>
     </section>
+    <hr>
+    <!--5. TIỆN ÍCH ĐƠN HÀNG & DỊCH VỤ NÂNG CAO-->
+    <section class="order-service">
+        <h2>Tiện ích đơn hàng & Dịch vụ nâng cao</h2>
+        <!--Theo dỗi đơn hàng-->
+        <div class="order-tracking">
+            <h3>Theo dõi đơn hàng</h3>
+            <p>
+                Kiểm tra trạng thái đơn hàng và tình trạng giao hàng
+                bằng cách nhập mã đơn hàng của bạn. 
+            </p>
+            <form>
+                <label for="order-code">Mã đơn hàng</label>
+                <input type="text" id="order-code" name="order-code" placeholder="Nhập mã đơn hàng">
+                <button type="submit">Tra cứu đơn hàng</button>
+            </form>
+        </div>
+        <!--Dịch vụ đặt tiệc-->
+        <div class="catering-service">
+            <h3>Dịch vụ đặt tiệc & Suất ăn văn phòng</h3>
+            <img width="700px" src="anh html\Vietnamese Office Catering Feast.png" alt="Dịch vụ đặt tiệc và suất ăn văn phòng">
+            <p>
+                  Cung cấp dịch vụ đặt món số lượng lớn cho tiệc gia đình,
+                  sinh nhật, sự kiện và các bữa ăn văn phòng.
+                  Khách hàng có thể yêu cầu báo giá theo số lượng suất ăn
+                  và nhu cầu phục vụ.
+            </p>
+            <a href="dattiec.html" class="btn-catering">Yêu cầu đặt tiệc</a>
+        </div>
+    </section>
+    <hr>
+<!-- KHU VỰC CHÂN TRANG -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- THÔNG TIN LIÊN HỆ -->
+        <div class="footer-section">
+            <h3>Thông tin liên hệ</h3>
+            <p>Hotline: 0123 456 789</p>
+            <p>Email: hotro@example.com</p>
+            <p>Địa chỉ: Hải Phòng, Việt Nam</p>
+        </div>
+
+        <!-- VỀ CHÚNG TÔI -->
+        <div class="footer-section">
+            <h3>Về chúng tôi</h3>
+            <p>
+                Mang đến những món ăn đặc trưng của Hải Phòng,
+                giúp khách hàng dễ dàng khám phá ẩm thực địa phương.
+            </p>
+            <a href="gioi-thieu.html">Câu chuyện thương hiệu</a>
+        </div>
+        <!-- HỖ TRỢ KHÁCH HÀNG -->
+        <div class="footer-section">
+            <h3>Hỗ trợ khách hàng</h3>
+            <a href="huong-dan-dat-hang.html">Hướng dẫn đặt hàng</a>|
+            <a href="chinh-sach-giao-hang.html">Chính sách giao hàng</a>|
+            <a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a>|
+            <a href="dieu-khoan.html">Điều khoản sử dụng</a>|
+        </div>
+        <!-- MẠNG XÃ HỘI -->
+        <div class="footer-section">
+            <h3>Kết nối với chúng tôi</h3>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>
+            &copy; 2026 Website đặt đồ ăn.
+            Bản quyền thuộc về website.
+        </p>
+    </div>
+</footer>
 </body>
 </html>

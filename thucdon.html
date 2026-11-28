@@ -9,6 +9,7 @@
 <body>
     <nav>
         <a href="index.html">Trang chủ</a>
+        <a href="giohang.html">Giỏ hàng</a>
     </nav>
         <!--3.Danh sách món ăn-->
     <section id="menu" class="food-menu">
@@ -350,5 +351,57 @@
         </div>
     </article>
     </section>
+    <script>
+        function layGia(chuoi) {
+            var kq = chuoi.match(/[\d.]+(?=\s*đ)/i);
+            if (!kq) return 0;
+            return Number(kq[0].replace(/\./g, ''));
+        }
+
+        var nutThem = document.querySelectorAll('.btn-add');
+        for (var i = 0; i < nutThem.length; i++) {
+            nutThem[i].onclick = function () {
+                var the = this.closest('.food-card');
+                var ten = the.querySelector('h3').innerText.trim();
+                var soLuong = Number(the.querySelector('input[type="number"]').value);
+                if (soLuong < 1) soLuong = 1;
+
+                var gia = 0;
+                var tuyChon = [];
+                var dsSelect = the.querySelectorAll('select');
+                for (var j = 0; j < dsSelect.length; j++) {
+                    var chu = dsSelect[j].options[dsSelect[j].selectedIndex].text;
+                    tuyChon.push(chu);
+                    if (layGia(chu) > 0) {
+                        gia = layGia(chu);
+                    }
+                }
+                if (gia == 0) {
+                    gia = layGia(the.querySelector('.food-price').innerText);
+                }
+
+                var tenDayDu = tuyChon.length > 0 ? ten + ' (' + tuyChon.join(', ') + ')' : ten;
+                var gioHang = JSON.parse(localStorage.getItem('gioHang')) || [];
+                var daCo = false;
+                for (var k = 0; k < gioHang.length; k++) {
+                    if (gioHang[k].ten == tenDayDu) {
+                        gioHang[k].soLuong += soLuong;
+                        daCo = true;
+                        break;
+                    }
+                }
+                if (!daCo) {
+                    gioHang.push({
+                        ten: tenDayDu,
+                        gia: gia,
+                        soLuong: soLuong
+                    });
+                }
+
+                localStorage.setItem('gioHang', JSON.stringify(gioHang));
+                alert('Đã thêm ' + ten + ' vào giỏ hàng!');
+            };
+        }
+    </script>
 </body>
 </html>

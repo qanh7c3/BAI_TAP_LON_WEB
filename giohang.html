@@ -67,6 +67,24 @@
                 <div class="cart-summary">
 
                     <h2>Tổng đơn hàng</h2>
+                    <div class="form-group">
+                        <label for="thanh-vien">Hạng thành viên:</label>
+                        <select id="thanh-vien" style="width:100%;">
+                            <option value="0">Không có (0%)</option>
+                            <option value="0.05">Thành viên Bạc (Giảm 5%)</option>
+                            <option value="0.1">Thành viên Vàng (Giảm 10%)</option>
+                            <option value="0.15">Thành viên Kim Cương (Giảm 15%)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="voucher">Chọn voucher:</label>
+                        <select id="voucher" style="width:100%;">
+                            <option value="">Không dùng voucher</option>
+                            <option value="DOOF10">DOOF10 - Giảm 10% (từ 100.000đ)</option>
+                            <option value="DOOF20">DOOF20 - Giảm 20.000đ (từ 150.000đ)</option>
+                            <option value="DOOF30">DOOF30 - Giảm 30% (từ 250.000đ)</option>
+                        </select>
+                    </div>
                     <div class="summary-row">
                         <span>Tổng tiền hàng:</span>
                         <span id="subtotal">0đ</span>
@@ -74,6 +92,10 @@
                     <div class="summary-row">
                         <span>Giảm giá thành viên:</span>
                         <span id="discount">0đ</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Giảm giá voucher:</span>
+                        <span id="voucher-discount">0đ</span>
                     </div>
                     <div class="summary-row total">
                         <strong>Tổng thanh toán:</strong>
@@ -169,5 +191,125 @@
         </div>
     </div>
 </div>
+<script>
+    var gioHang = JSON.parse(localStorage.getItem('gioHang')) || [];
+
+    function dinhDang(so) {
+        return so.toLocaleString('vi-VN') + 'đ';
+    }
+
+    function tinhTien() {
+        var tamTinh = 0;
+        var tongSL = 0;
+        for (var i = 0; i < gioHang.length; i++) {
+            tamTinh += gioHang[i].gia * gioHang[i].soLuong;
+            tongSL += gioHang[i].soLuong;
+        }
+
+        var tyLeTV = Number(document.getElementById('thanh-vien').value);
+        var giamTV = Math.floor(tamTinh * tyLeTV);
+
+        var maVoucher = document.getElementById('voucher').value;
+        var giamVoucher = 0;
+        if (maVoucher == 'DOOF10' && tamTinh >= 100000) {
+            giamVoucher = Math.floor(tamTinh * 0.1);
+        } else if (maVoucher == 'DOOF20' && tamTinh >= 150000) {
+            giamVoucher = 20000;
+        } else if (maVoucher == 'DOOF30' && tamTinh >= 250000) {
+            giamVoucher = Math.floor(tamTinh * 0.3);
+        }
+
+        var tongTien = tamTinh - giamTV - giamVoucher;
+        if (tongTien < 0) tongTien = 0;
+
+        document.getElementById('cart-count').innerText = tongSL;
+        document.getElementById('subtotal').innerText = dinhDang(tamTinh);
+        document.getElementById('discount').innerText = '-' + dinhDang(giamTV);
+        document.getElementById('voucher-discount').innerText = '-' + dinhDang(giamVoucher);
+        document.getElementById('total').innerText = dinhDang(tongTien);
+        document.getElementById('tong-thanh-toan').innerText = dinhDang(tongTien);
+    }
+
+    function hienThi() {
+        var tbody = document.getElementById('cart-items');
+        var empty = document.getElementById('empty-cart');
+        tbody.innerHTML = '';
+
+        if (gioHang.length == 0) {
+            empty.style.display = 'block';
+        } else {
+            empty.style.display = 'none';
+            for (var i = 0; i < gioHang.length; i++) {
+                var sp = gioHang[i];
+                var tr = document.createElement('tr');
+                tr.innerHTML =
+                    '<td>' + sp.ten + '</td>' +
+                    '<td>' + dinhDang(sp.gia) + '</td>' +
+                    '<td><input type="number" min="1" value="' + sp.soLuong + '" style="width:65px;" onchange="doiSoLuong(' + i + ', this.value)"></td>' +
+                    '<td>' + dinhDang(sp.gia * sp.soLuong) + '</td>' +
+                    '<td><button type="button" onclick="xoaMon(' + i + ')">Xóa</button></td>';
+                tbody.appendChild(tr);
+            }
+        }
+        tinhTien();
+    }
+
+    function doiSoLuong(i, val) {
+        var sl = Number(val);
+        if (sl < 1) sl = 1;
+        gioHang[i].soLuong = sl;
+        localStorage.setItem('gioHang', JSON.stringify(gioHang));
+        hienThi();
+    }
+
+    function xoaMon(i) {
+        gioHang.splice(i, 1);
+        localStorage.setItem('gioHang', JSON.stringify(gioHang));
+        hienThi();
+    }
+
+    document.getElementById('thanh-vien').onchange = tinhTien;
+    document.getElementById('voucher').onchange = tinhTien;
+
+    var popup = document.getElementById('popup-dathang');
+    document.getElementById('btn-xac-nhan').onclick = function () {
+        if (gioHang.length == 0) {
+            alert('Giỏ hàng đang trống!');
+            return;
+        }
+        var ds = document.getElementById('danh-sach-mon');
+        ds.innerHTML = '';
+        for (var i = 0; i < gioHang.length; i++) {
+            var p = document.createElement('p');
+            p.innerText = gioHang[i].ten + ' x ' + gioHang[i].soLuong;
+            ds.appendChild(p);
+        }
+        tinhTien();
+        popup.classList.add('active');
+    };
+
+    document.querySelector('.popup-close').onclick = function () {
+        popup.classList.remove('active');
+    };
+    document.querySelector('.btn-back').onclick = function () {
+        popup.classList.remove('active');
+    };
+    document.querySelector('.btn-confirm').onclick = function () {
+        var hoten = document.getElementById('hoten').value.trim();
+        var sdt = document.getElementById('sdt').value.trim();
+        var diachi = document.getElementById('diachi').value.trim();
+        if (!hoten || !sdt || !diachi) {
+            alert('Vui lòng nhập đầy đủ thông tin giao hàng!');
+            return;
+        }
+        alert('Đặt hàng thành công!');
+        gioHang = [];
+        localStorage.removeItem('gioHang');
+        popup.classList.remove('active');
+        hienThi();
+    };
+
+    hienThi();
+</script>
 </body>
 </html>

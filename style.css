@@ -88,7 +88,7 @@ body > nav { background: var(--white); padding: 8px 32px; box-shadow: var(--shad
     border: 1px solid var(--main);
     border-radius: 20px;
 }
-.fufillment a:hover, .user-action a:hover { background: var(--main); color: #fff; }
+.fufillment a:hover, .fufillment a.active, .user-action a:hover { background: var(--main); color: #fff; }
 
 .nut-giaohang a {
     display: inline-block;

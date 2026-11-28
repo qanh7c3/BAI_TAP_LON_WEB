@@ -32,12 +32,12 @@
         <hr>
         <div class="fufillment">
             <span>Cách nhận hàng: </span>
-            <a href="#giaohang">Giao hàng</a>
+            <a href="#giaohang" class="active">Giao hàng</a>
             <a href="#nhanhang">Nhận hàng</a>
         </div>
         <br>
         <div class="nut-giaohang">
-            <a href="#dathang">Đặt hàng ngay</a>
+            <a href="thucdon.html">Đặt hàng ngay</a>
         </div>
         <!--Tài khoản và giỏi hàng-->
         <div class="user-action">
@@ -168,6 +168,18 @@
             </p>
         </div>
     </footer>
+    <script>
+        var nutNhan = document.querySelectorAll('.fufillment a');
+        for (var i = 0; i < nutNhan.length; i++) {
+            nutNhan[i].onclick = function (e) {
+                e.preventDefault();
+                for (var j = 0; j < nutNhan.length; j++) {
+                    nutNhan[j].classList.remove('active');
+                }
+                this.classList.add('active');
+            };
+        }
+    </script>
 </body>
 
 </html>
